@@ -1,25 +1,19 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "target": "ES5",
     "outDir": "dist/",
-    "noImplicitAny": true,
     "removeComments": true,
-    "preserveConstEnums": true,
     "sourceMap": true,
-    "target": "ESNext",
     "allowJs": true,
-    "checkJs": false,
     "jsx": "react",
-    "pretty": true,
+    "jsxFactory": "h",
     "skipLibCheck": true,
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": ["dom", "dom.iterable", "ESNext"],
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts"]

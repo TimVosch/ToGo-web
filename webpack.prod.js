@@ -1,9 +1,12 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: ["./src/index.tsx"],
+  // devtool: "",
   module: {
     rules: [
       {
@@ -19,7 +22,8 @@ module.exports = {
       {
         test: /\.(css)$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
+          // "style-loader",
           { loader: "css-loader", options: { importLoaders: 1 } },
           {
             loader: "postcss-loader",
@@ -39,6 +43,13 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      react: "preact/compat",
+      "react-dom": "preact/compat",
+      // Must be below test-utils
+    },
+  },
+  resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
@@ -47,12 +58,13 @@ module.exports = {
     filename: "app.min.js",
   },
   optimization: {
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin(), new OptimeCSSPlugin()],
   },
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: true,
     }),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),

@@ -1,5 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -28,11 +31,8 @@ module.exports = {
             options: {
               ident: "postcss",
               plugins: [
-                require("tailwindcss"),
+                require("tailwindcss")("./tailwind.config.js"),
                 require("autoprefixer"),
-                require("@fullhuman/postcss-purgecss")({
-                  content: ["./src/**/*.tsx"],
-                }),
               ],
             },
           },
