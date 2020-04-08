@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(s?css)$/,
+        test: /\.(css)$/,
         use: [
           "style-loader",
           { loader: "css-loader", options: { importLoaders: 1 } },
@@ -27,7 +27,13 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               ident: "postcss",
-              plugins: [require("tailwindcss"), require("autoprefixer")],
+              plugins: [
+                require("tailwindcss"),
+                require("autoprefixer"),
+                require("@fullhuman/postcss-purgecss")({
+                  content: ["./src/**/*.tsx"],
+                }),
+              ],
             },
           },
         ],
@@ -45,6 +51,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
     }),
   ],
   devServer: {
