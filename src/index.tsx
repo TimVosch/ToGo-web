@@ -1,12 +1,12 @@
 import { render, h } from "preact";
 import "./index.css";
-import { App } from "./components/App";
+import { Router } from "./router";
 
 const root = document.querySelector("#container");
 if (!root) {
   console.error("Missing #container");
 } else {
-  render(<App />, root);
+  render(<Router />, root);
 }
 
 if (module && module.hot) {
