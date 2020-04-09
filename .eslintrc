@@ -3,9 +3,15 @@
   "env": {
     "browser": true
   },
-  "extends": ["plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
   "plugins": ["@typescript-eslint", "prettier", "react"],
   "settings": {
     "react": { "pragma": "h" }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
   }
 }
