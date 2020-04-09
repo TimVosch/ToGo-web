@@ -10,20 +10,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|tsx?)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
-      },
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
       },
       {
         test: /\.(css)$/,
         use: [
           MiniCssExtractPlugin.loader,
-          // "style-loader",
           { loader: "css-loader", options: { importLoaders: 1 } },
           {
             loader: "postcss-loader",

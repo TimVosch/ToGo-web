@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "outDir": "dist/",
-    "removeComments": true,
+    "moduleResolution": "node",
     "sourceMap": true,
-    "allowJs": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "skipLibCheck": true,
     "strict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "isolatedModules": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts"]

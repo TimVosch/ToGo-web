@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from "preact";
+import { FunctionalComponent } from "preact";
 
 export const HomePage: FunctionalComponent = () => (
   <div>

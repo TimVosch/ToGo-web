@@ -3,14 +3,7 @@
   "env": {
     "browser": true
   },
-  "extends": [
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended"],
   "plugins": ["@typescript-eslint", "prettier", "react"],
   "settings": {
     "react": { "pragma": "h" }

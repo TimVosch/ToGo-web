@@ -1,16 +1,14 @@
 {
-  "presets": [
-    "@babel/react",
+  "presets": ["@babel/env", "@babel/preset-typescript"],
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx", { "pragma": "h" }],
     [
-      "@babel/preset-env",
+      "babel-plugin-jsx-pragmatic",
       {
-        "targets": {
-          "esmodules": true
-        },
-        "modules": "false",
-        "useBuiltIns": false
+        "module": "preact",
+        "import": "h",
+        "export": "h"
       }
     ]
-  ],
-  "plugins": [["@babel/plugin-transform-react-jsx", { "pragma": "h" }]]
+  ]
 }
