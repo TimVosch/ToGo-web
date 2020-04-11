@@ -3,12 +3,10 @@
     "target": "ESNext",
     "outDir": "dist/",
     "moduleResolution": "node",
-    "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h",
     "strict": true,
-    "esModuleInterop": true,
-    "isolatedModules": true
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts"]

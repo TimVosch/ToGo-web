@@ -1,4 +1,4 @@
-import { FunctionalComponent } from "preact";
+import { h, FunctionalComponent } from "preact";
 import logo from "./logo.svg";
 
 export const Navigation: FunctionalComponent = () => (
