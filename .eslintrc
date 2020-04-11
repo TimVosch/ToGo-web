@@ -22,6 +22,7 @@
       {
         "ignore": ["class"]
       }
-    ]
+    ],
+    "react/prop-types": [0]
   }
 }
