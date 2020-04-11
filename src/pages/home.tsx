@@ -1,6 +1,6 @@
 import { h, Component, ComponentChild } from "preact";
-import { Navigation } from "../components/navigation/navigation";
-import { InputCard } from "../components/input-card/input-card";
+import { Navigation } from "../components/navigation";
+import { InputCard } from "../components/input-card";
 import { TodoService } from "../services/todo/todo.service";
 import { TodoCard } from "../components/todo-card";
 
