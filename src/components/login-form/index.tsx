@@ -1,4 +1,4 @@
-import { h, FunctionComponent, FunctionalComponent } from "preact";
+import { h, FunctionalComponent, Component, ComponentChild } from "preact";
 
 interface InputGroupProps {
   name?: string;
@@ -32,35 +32,60 @@ const TextInput: FunctionalComponent<InputGroupProps> = ({
 };
 
 interface LoginFormProps {
-  onLogin?: () => void;
+  onLogin?: (email: string, password: string) => void;
 }
 
-export const LoginForm: FunctionComponent<LoginFormProps> = ({ onLogin }) => (
-  <div class="flex flex-col w-1/2 mx-auto mt-5 pb-3 shadow-md rounded-lg overflow-hidden">
-    <div className="mb-4 border-b bg-teal-500 font-semibold text-white p-3 text-center">
-      Login
-    </div>
-    <div className="px-3">
-      <TextInput
-        name="email"
-        label="Your email:"
-        type="email"
-        placeholder="example@email.com"
-        class="mb-5"
-      />
-      <TextInput
-        name="password"
-        label="Your password:"
-        placeholder=""
-        type="password"
-        class="mb-5"
-      />
-      <button
-        onClick={onLogin}
-        class="py-2 px-3 border border-teal-600 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-bg duration-100"
+export class LoginForm extends Component<LoginFormProps> {
+  onSubmit(e: Event): void {
+    e.preventDefault();
+
+    const { onLogin } = this.props;
+    if (typeof onLogin !== "function") {
+      return;
+    }
+
+    const emailInput = document.getElementsByName(
+      "login-input-email"
+    )[0] as HTMLInputElement;
+    const passwordInput = document.getElementsByName(
+      "login-input-password"
+    )[0] as HTMLInputElement;
+
+    onLogin(emailInput.value, passwordInput.value);
+  }
+
+  render(): ComponentChild {
+    return (
+      <form
+        onSubmitCapture={this.onSubmit.bind(this)}
+        class="flex flex-col w-1/2 mx-auto mt-5 pb-3 shadow-md rounded-lg overflow-hidden"
       >
-        Login
-      </button>
-    </div>
-  </div>
-);
+        <div className="mb-4 border-b bg-teal-500 font-semibold text-white p-3 text-center">
+          Login
+        </div>
+        <div className="px-3">
+          <TextInput
+            name="login-input-email"
+            label="Your email:"
+            type="email"
+            placeholder="example@email.com"
+            class="mb-5"
+          />
+          <TextInput
+            name="login-input-password"
+            label="Your password:"
+            placeholder=""
+            type="password"
+            class="mb-5"
+          />
+          <button
+            type="submit"
+            class="py-2 px-3 border border-teal-600 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-bg duration-100"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    );
+  }
+}

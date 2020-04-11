@@ -66,5 +66,11 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     writeToDisk: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3001",
+        pathRewrite: { "^/api": "" },
+      },
+    },
   },
 };

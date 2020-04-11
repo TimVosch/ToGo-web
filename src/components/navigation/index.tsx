@@ -13,8 +13,8 @@ export const Navigation: FunctionalComponent = () => (
       <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/profile">
         <span>Home</span>
       </a>
-      <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/profile">
-        <span>Profile</span>
+      <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/login">
+        <span>Login</span>
       </a>
       <a
         class="flex items-center pl-2 pr-3 hover:bg-teal-600"

@@ -1,12 +1,21 @@
 import { h, render } from "preact";
 import "./index.css";
 import { Router } from "./router";
+import { LoginService } from "./services/login/login.service";
+
+/**
+ * Initializes services
+ */
+function bootstrap(): void {
+  new LoginService();
+}
 
 const root = document.querySelector("#container");
 if (!root) {
   // eslint-disable-next-line
   console.error("Missing #container");
 } else {
+  bootstrap();
   render(<Router />, root);
 }
 
