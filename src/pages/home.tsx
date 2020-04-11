@@ -1,7 +1,8 @@
 import { FunctionalComponent } from "preact";
+import { Navigation } from "../components/navigation";
 
 export const HomePage: FunctionalComponent = () => (
   <div>
-    <h1 className="text-xl">Hello world!</h1>
+    <Navigation />
   </div>
 );
