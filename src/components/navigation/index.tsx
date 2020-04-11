@@ -10,7 +10,7 @@ export const Navigation: FunctionalComponent = () => (
     </div>
     {/* Nav items */}
     <div class="flex text-white">
-      <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/profile">
+      <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/">
         <span>Home</span>
       </a>
       <a class="flex items-center pl-2 pr-3 hover:bg-teal-600" href="/login">
