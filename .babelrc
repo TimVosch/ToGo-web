@@ -1,5 +1,8 @@
 {
-  "presets": ["@babel/env", ["@babel/preset-typescript", { "jsxPragma": "h" }]],
+  "presets": [
+    ["@babel/env", { "targets": { "esmodules": true } }],
+    ["@babel/preset-typescript", { "jsxPragma": "h" }]
+  ],
   "plugins": [
     ["@babel/plugin-transform-react-jsx", { "pragma": "h" }],
     ["@babel/plugin-proposal-class-properties"]
