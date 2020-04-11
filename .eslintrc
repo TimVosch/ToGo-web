@@ -23,6 +23,8 @@
         "ignore": ["class"]
       }
     ],
-    "react/prop-types": [0]
+    "react/prop-types": [0],
+    "@typescript-eslint/no-explicit-any": [0],
+    "eqeqeq": [2]
   }
 }
