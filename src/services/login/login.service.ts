@@ -66,7 +66,13 @@ export class LoginService {
     if (typeof token === "string") {
       // Sign in
       const parts = token.split(".");
-      this.payload = JSON.parse(atob(parts[1]));
+      this.payload = JSON.parse(atob(parts[1])) as Record<string, any>;
+
+      // Check if token is expired
+      if (this.payload.exp && this.payload.exp <= Date.now()) {
+        throw new AuthenticationError("Session is expired");
+      }
+
       localStorage.setItem("token", token);
     } else {
       // Sign out
