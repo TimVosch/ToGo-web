@@ -60,10 +60,10 @@ export class LoginForm extends Component<LoginFormProps> {
         onSubmitCapture={this.onSubmit.bind(this)}
         class="flex flex-col w-1/2 mx-auto mt-5 pb-3 shadow-md rounded-lg overflow-hidden"
       >
-        <div className="mb-4 border-b bg-teal-500 font-semibold text-white p-3 text-center">
+        <div class="mb-4 border-b bg-teal-500 font-semibold text-white p-3 text-center">
           Login
         </div>
-        <div className="px-3">
+        <div class="px-3">
           <TextInput
             name="login-input-email"
             label="Your email:"

@@ -16,7 +16,7 @@ export const InputCard: FunctionComponent<InputCardPropTypes> = (props) => (
       class="focus:outline-none flex-1 p-3 text-md rounded-l-lg"
     />
     <button
-      className="h-100 py-3 px-5 text-white font-semibold bg-green-400 hover:bg-green-500 rounded-r-lg transition-background duration-100"
+      class="h-100 py-3 px-5 text-white font-semibold bg-green-400 hover:bg-green-500 rounded-r-lg transition-background duration-100"
       onClick={props.onSubmit}
     >
       {props.value || "Submit"}
