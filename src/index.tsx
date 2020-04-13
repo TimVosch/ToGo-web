@@ -2,12 +2,14 @@ import { h, render } from "preact";
 import "./index.css";
 import { Router } from "./router";
 import { LoginService } from "./services/login/login.service";
+import { TodoService } from "./services/todo/todo.service";
 
 /**
  * Initializes services
  */
 function bootstrap(): void {
   new LoginService();
+  new TodoService();
 }
 
 const root = document.querySelector("#container");

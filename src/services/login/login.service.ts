@@ -2,13 +2,15 @@ import { AuthenticationError } from "./authentication.error";
 
 export class LoginService {
   private static instance: LoginService | null = null;
+  private readonly URL: string;
   private token: string | null = null;
   private payload: Record<string, any> | null = null;
 
-  constructor(private readonly URL: string = "/api/auth") {
+  constructor(baseURL = "/api", resourceURI = "/auth") {
     if (LoginService.instance !== null) {
       return LoginService.instance;
     }
+    this.URL = baseURL + resourceURI;
     LoginService.instance = this;
     this.recoverSession();
   }
@@ -18,6 +20,13 @@ export class LoginService {
    */
   isLoggedIn(): boolean {
     return typeof this.token === "string";
+  }
+
+  /**
+   *
+   */
+  getToken(): string {
+    return this.token || "";
   }
 
   /**

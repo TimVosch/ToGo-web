@@ -3,29 +3,42 @@ import { Navigation } from "../components/navigation";
 import { InputCard } from "../components/input-card";
 import { TodoService } from "../services/todo/todo.service";
 import { TodoCard } from "../components/todo-card";
+import { Todo } from "../services/todo/todo.model";
 
-export class HomePage extends Component {
+interface HomePageState {
+  todos: Todo[];
+}
+
+export class HomePage extends Component<{}, HomePageState> {
   private readonly todos = new TodoService();
 
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      todos: [],
+    };
+  }
+
+  componentDidMount(): void {
+    this.fetchTodos();
   }
 
   addTodo(): void {
-    alert(this.constructor.name);
+    // this.todos.
   }
 
-  fetchTodos(): ComponentChild[] {
-    const items = this.todos
-      .getTodos()
-      .map((todo) => <TodoCard key={todo.id} todo={todo} />);
-
-    return items;
+  async fetchTodos(): Promise<void> {
+    const todos = await this.todos.getTodos();
+    this.setState({
+      todos,
+    });
   }
 
   render(): ComponentChild {
-    const todos = this.fetchTodos();
+    const { todos } = this.state;
+    const todoCards = todos.map((todo) => (
+      <TodoCard key={todo.id} todo={todo} />
+    ));
     return (
       <div>
         <Navigation />
@@ -34,7 +47,7 @@ export class HomePage extends Component {
           value="Add"
           onSubmit={this.addTodo.bind(this)}
         />
-        {todos}
+        {todoCards}
       </div>
     );
   }
