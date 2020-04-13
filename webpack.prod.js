@@ -28,6 +28,8 @@ module.exports = {
                 require("autoprefixer"),
                 require("@fullhuman/postcss-purgecss")({
                   content: ["./src/**/*.tsx"],
+                  defaultExtractor: (content) =>
+                    content.match(/[\w-/:]+(?<!:)/g) || [],
                 }),
               ],
             },
